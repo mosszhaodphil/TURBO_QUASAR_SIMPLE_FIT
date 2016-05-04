@@ -1,0 +1,20 @@
+#QUASAR analysis calibration options
+#--mask=mask
+--mask=mask_mean
+#--method=vb
+--method=spatialvb
+--noise=white
+--param-spatial-priors=MN+
+--model=satrecov
+#--repeats=1
+--phases=6
+#--phases=1
+--ti1=0.04 --ti2=0.64 --ti3=1.24 --ti4=1.84 --ti5=2.44 --ti6=3.04 --ti7=3.64 --ti8=4.24 --ti9=4.84 --ti10=5.44 --ti11=6.04 
+--t1=1.3
+--FA=35
+#--FA=11.7
+#--LFA=11.7
+--slicedt=0.035
+--slice_shift=1
+--save-model-fit
+--save-residuals

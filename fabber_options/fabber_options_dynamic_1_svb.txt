@@ -1,0 +1,126 @@
+# fabber --data=tissue --data-order=singlefile --output=full_svb -@ fabber_options_dynamic_1_svb.txt 
+# fabber --data=tissue_noise --data-order=singlefile --output=full_svb -@ fabber_options_dynamic_1_svb.txt 
+# fslmaths full_svb/mean_ftiss -mul 6000 -div 0.91 full_svb/perfusion_gm
+
+# Turbo QUASAR analysis options
+--mask=mask
+--method=spatialvb
+--noise=white
+--model=turboquasar
+# quasar model incorporates dispersion by default, so we need to turn it off.
+--disp=none
+#--inferart
+--save-model-fit
+# print free energy
+--print-free-energy
+--save-residuals
+--repeats=1
+--max-iterations=100
+
+--n_bolus=7
+--delta_bolus=0.6
+--slice_shift=1
+--onephase
+--ti1=0.04 --ti2=0.34 --ti3=0.64 --ti4=0.94 --ti5=1.24 --ti6=1.54 --ti7=1.84 --ti8=2.14 --ti9=2.44 --ti10=2.74 --ti11=3.04 --ti12=3.34 --ti13=3.64 --ti14=3.94 --ti15=4.24 --ti16=4.54 --ti17=4.84 --ti18=5.14 --ti19=5.44 --ti20=5.74 --ti21=6.04 --ti22=6.34 --ti23=6.64 --ti24=6.94
+
+#--ti1=0.04 --ti2=0.64 --ti3=1.24 --ti4=1.84 --ti5=2.44 --ti6=3.04 --ti7=3.64 --ti8=4.24 --ti9=4.84 --ti10=5.44 --ti11=6.04 --ti12=6.64 
+
+
+
+--t1=1.3 --t1b=1.6 --fa=35
+--tau=0.5
+--infertau
+#--slicedt=0.035
+--slicedt=0
+#--infert1 
+#--artdir
+#--usecalib 
+#--image-prior3=calib/mean_T1t 
+#--image-prior7=calib/mean_g
+# parameter list for infer bolus
+#--param-spatial-priors=MNINNNNN
+# parameter list for not infer bolus
+#--param-spatial-priors=MNINNNN
+
+
+
+# Spatial priors list
+# --param-spatial-priors=MNANMNIINNNNN
+# First set all values of spatial prior to non-spatial(N)
+#--param-spatial-priors=N+
+
+# Set individual priors, indicate if value is not N
+
+#ftiss
+#delttiss
+#tautiss
+#T_1
+#T_1b
+#sp_log
+#s_log
+#g
+
+
+--PSP_byname1=ftiss
+--PSP_byname1_type=M
+--PSP_byname2=delttiss
+--PSP_byname2_type=N
+--PSP_byname3=sp_log
+--PSP_byname3_type=N
+--PSP_byname4=s_log
+--PSP_byname4_type=N
+--PSP_byname5=tautiss
+--PSP_byname5_type=N
+#--PSP_byname5=g
+#--PSP_byname5_type=N
+
+#--PSP_byname5=T_1
+#--PSP_byname5_type=I
+#--PSP_byname5_image=calib/mean_T1t
+#--PSP_byname6=T_1b
+#--PSP_byname6_type=N
+#--PSP_byname7_image=calib/g
+#--PSP_byname8=tautiss
+#--PSP_byname8_type=N
+
+
+
+#--PSP_byname3=fblood
+#--PSP_byname3_type=A
+#--PSP_byname4=deltblood
+#--PSP_byname4_type=N
+#--PSP_byname5=fwm
+#--PSP_byname5_type=M
+#--PSP_byname6=deltwm
+#--PSP_byname6_type=N
+#--PSP_byname7=p_gm
+#--PSP_byname7_type=I
+#--PSP_byname7_image=pvgm
+#--PSP_byname8=p_wm
+#--PSP_byname8_type=I
+#--PSP_byname8_image=pvwm
+#--PSP_byname9=sp_log
+#--PSP_byname9_type=N
+#--PSP_byname10=s_log
+#--PSP_byname10_type=N
+#--PSP_byname11=thblood
+#--PSP_byname11_type=N
+#--PSP_byname12=phiblood
+#--PSP_byname12_type=N
+#--PSP_byname13=bvblood
+#--PSP_byname13_type=N
+
+# Order of spatial priors
+# ftiss
+# delttiss
+# fblood
+# deltblood
+# fwm
+# deltwm
+# p_gm
+# p_wm
+# sp_log
+# s_log
+# thblood
+# phiblood
+# bvblood

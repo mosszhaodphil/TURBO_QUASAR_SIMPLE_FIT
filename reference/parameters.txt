@@ -1,0 +1,71 @@
+****************************
+Simulation Parameters
+****************************
+
+GM CBF: 60.00 
+WM CBF: 20.00 
+ABV: 1.50% 
+Bolus duration: 0.60 
+Bolus Arrival Time GM Tissue: 0.70 
+Bolus Arrival Time WM Tissue: 1.00 
+Bolus Arrival Time Arterial Blood: 0.50 
+T1 GM Tissue: 1.30 
+T1 WM Tissue: 1.10 
+T1 Arterial Blood: 1.60 
+T1 GM Tissue Corrected (Look-Locker): 0.68 
+T1 WM Tissue Corrected (Look-Locker): 0.62 
+T1 Arterial Blood Corrected (Look-Locker): 1.03 
+M0 Arterial blood: 1.00 
+Inversion efficiency: 0.91 
+Blood tissue partition coefficient: 0.90 
+
+Flip angle norm: 35.00 
+Flip angle corrected: 35.80 
+Flow suppression angle phi: 4.68 
+Flow suppression angle theta: -39.60 
+g: 1.00 
+delta_g: 0.0230 
+
+Mask file: ref_images/mask_mean.nii.gz
+GM PV Map file: ref_images/pvgm_one.nii.gz
+WM PV Map file: ref_images/pvwm_zero.nii.gz
+ABV Mask file: ref_images/mask_abv.nii.gz
+
+SNR: 40
+Total number of bolus(es): 7
+Delta TI: 0.60 
+Number of delta TI between each successive bolus: 1
+Time gap between each successive bolus: 0.60
+Slice shifting: 2
+Actual sampling rate: 0.30
+
+Inversion Time (TI): 0.04 
+Inversion Time (TI): 0.34 
+Inversion Time (TI): 0.64 
+Inversion Time (TI): 0.94 
+Inversion Time (TI): 1.24 
+Inversion Time (TI): 1.54 
+Inversion Time (TI): 1.84 
+Inversion Time (TI): 2.14 
+Inversion Time (TI): 2.44 
+Inversion Time (TI): 2.74 
+Inversion Time (TI): 3.04 
+Inversion Time (TI): 3.34 
+Inversion Time (TI): 3.64 
+Inversion Time (TI): 3.94 
+Inversion Time (TI): 4.24 
+Inversion Time (TI): 4.54 
+Inversion Time (TI): 4.84 
+Inversion Time (TI): 5.14 
+Inversion Time (TI): 5.44 
+Inversion Time (TI): 5.74 
+Inversion Time (TI): 6.04 
+Inversion Time (TI): 6.34 
+Inversion Time (TI): 6.64 
+Inversion Time (TI): 6.94 
+
+--ti1=0.04 --ti2=0.34 --ti3=0.64 --ti4=0.94 --ti5=1.24 --ti6=1.54 --ti7=1.84 --ti8=2.14 --ti9=2.44 --ti10=2.74 --ti11=3.04 --ti12=3.34 --ti13=3.64 --ti14=3.94 --ti15=4.24 --ti16=4.54 --ti17=4.84 --ti18=5.14 --ti19=5.44 --ti20=5.74 --ti21=6.04 --ti22=6.34 --ti23=6.64 --ti24=6.94 
+
+****************************
+End
+****************************
