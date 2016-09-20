@@ -17,9 +17,10 @@ function tissue_m = calculate_M0_tissue_Hrabe_no_dispersion(cbf_matrix, arrival_
 	%inversion_efficiency  = 0.91;
 	inversion_efficiency  = 1;
 	m_0a                  = 1;
-	n_bolus               = 7; % total number of boluses
 	slice_shifting_factor = 2;
-	delta_bolus           = (TIs_vector(2) - TIs_vector(1)) * slice_shifting_factor
+	delta_bolus           = (TIs_vector(2) - TIs_vector(1)) * slice_shifting_factor;
+	bolus_order           = [1 0 1 0 1 0 1];
+	n_bolus               = size(bolus_order, 2); % total number of boluses
 
 	% TIs
 	%t1_a_eff             = 1.03; % LL corrected value
@@ -52,6 +53,8 @@ function tissue_m = calculate_M0_tissue_Hrabe_no_dispersion(cbf_matrix, arrival_
 
 					current_arrival_time = bolus_time_passed + tau_t;
 
+					current_bolus_duration = tau_b * bolus_order(bolus_arrived + 1);
+
 					% Implementation of eq [7]
 					for current_ti = 1 : num_of_tis
 
@@ -78,12 +81,12 @@ function tissue_m = calculate_M0_tissue_Hrabe_no_dispersion(cbf_matrix, arrival_
 							tissue_m(i, j, k, current_ti) = tissue_m(i, j, k, current_ti) + 0;
 						end
 
-						if(TIs_vector(current_ti) >= current_arrival_time && TIs_vector(current_ti) < current_arrival_time + tau_b)
+						if(TIs_vector(current_ti) >= current_arrival_time && TIs_vector(current_ti) < current_arrival_time + current_bolus_duration)
 							tissue_m(i, j, k, current_ti) = tissue_m(i, j, k, current_ti) + F / R * (exp(R * (TIs_vector(current_ti) - bolus_time_passed)) - exp(R * tau_t));
 						end
 
-						if(TIs_vector(current_ti) >= current_arrival_time + tau_b)
-							tissue_m(i, j, k, current_ti) = tissue_m(i, j, k, current_ti) + F / R * (exp(R * (tau_t + tau_b)) - exp(R * tau_t));
+						if(TIs_vector(current_ti) >= current_arrival_time + current_bolus_duration)
+							tissue_m(i, j, k, current_ti) = tissue_m(i, j, k, current_ti) + F / R * (exp(R * (tau_t + current_bolus_duration)) - exp(R * tau_t));
 
 						end
 					end
